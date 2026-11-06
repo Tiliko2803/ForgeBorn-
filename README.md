@@ -1,22 +1,24 @@
 # ForgeBorn ⚒️
 
-Juego de navegador sobre forjar armas, diseñado primero para móvil.
+Juego de navegador para forjar armas, engastarlas y probarlas en la arena.
 
-## Prototipo 0.1
-- Calentar el metal hasta 550 °C o más.
-- Golpear distintas zonas de una hoja en un yunque.
-- Deformación visual localizada mediante una malla de 19 puntos en HTML5 Canvas.
-- Enfriamiento gradual, chispas, marcas de martillo y puntuación inicial.
-- Finalizar la hoja después de al menos cinco golpes; reiniciar para otra partida.
+## Estructura
+- `index.html`: interfaz y carga de scripts.
+- `css/style.css`: presentación responsive.
+- `js/game.js`: forja, economía, interfaz y arena (siguiente paso: dividir subsistemas).
+- `js/rules.js`: reglas puras y comprobables de rarezas y potencia.
+- `tests/rules.test.js`: pruebas automáticas sin dependencias externas.
 
 ## Probar
-Abre `index.html` en un navegador moderno. No requiere instalación ni dependencias.
+1. Ejecutar `node tests/rules.test.js` (Node.js 18+).
+2. Iniciar un servidor estático, por ejemplo `python -m http.server 8000`, y abrir `http://localhost:8000`.
+3. En móvil, comprobar: calentar y golpear repetidamente, comprar, forjar, engastar, combatir, vender y recargar para verificar guardado.
 
-## Próximas etapas
-1. Refinar deformación y añadir golpe de ambos filos.
-2. Plantillas de espadas y objetivos de silueta.
-3. Temple, afilado y evaluación de calidad.
-4. Sonido, mejoras visuales y guardado local.
-5. Publicar en GitHub Pages cuando el repositorio sea público (o con una configuración de Pages compatible).
+## Reglas de desarrollo
+- No cambiar la clave `forgeborn_progress_v1` sin migración de datos.
+- Mantener `js/rules.js` sin DOM ni acceso a almacenamiento.
+- Ejecutar pruebas antes de publicar; añadir una prueba por cada fallo corregido.
+- No confundir comprobación sintáctica con prueba funcional en navegador.
 
-Proyecto en desarrollo.
+## Publicación
+https://tiliko2803.github.io/ForgeBorn-/
